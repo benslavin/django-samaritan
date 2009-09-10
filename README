@@ -1,0 +1,43 @@
+================
+Django Samaritan
+================
+
+This is a simple way to ensure that your Django applications can support
+user models other than django.contrib.auth.models.User
+
+Primary approach -- Dynamic Specification of User Model
+-------------------------------------------------------
+It introduces simple, drop-in, replacements for the relationship fields
+ForeignKey, ManyToManyField and OneToOneField to be used when creating
+references to a User.
+
+Secondary approach -- Monkey Patching
+-------------------------------------
+There is also a method for injecting this behavior into models where the
+author has not used django-samaritan on their own. This solution is not
+a desirable long-term solution; however, wide-spread use of the
+django-samaritan relationship fields will remove the need for this
+approach.
+
+NOTE: If you are using the monkey patching approach, samaritan MUST be the
+first app in your INSTALLED_APPS.
+
+Reasonable expectations
+-----------------------
+When using django-samaritan, it is reasonable to expect a User instance to
+have all of the attributes, methods and properties of the django.contrib.auth
+User model.
+
+Dependencies
+------------
+The only dependency is Django 1.1. This may work with other versions of
+Django, but has not been tested.
+
+Installation
+------------
+For installation instructions, please see INSTALL.
+
+Gotchas
+-------
+Monkey patching doesn't work for django.auth.handlers.modpython because of
+the import scope.

@@ -1,0 +1,7 @@
+Thank you for downloading django-samaritan.
+
+To install django-samaritan, simply run:
+	python setup.py install
+
+Please note that this has only been tested on Python 2.6 with Django 1.1,
+though it should work with other versions.
